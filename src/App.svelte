@@ -1,13 +1,19 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Button from './ui-comps/Button.svelte';
+import svelteLogo from './assets/svelte.svg'
+import viteLogo from '/vite.svg'
+import Button from './ui-comps/Button.svelte';
+import Dialog from './ui-comps/Dialog.svelte';
 
-  let count = 0
+let count = 0
+let showDialog = false
+const close = ()=>showDialog=true
 </script>
 
 <main>
   <Button on:click={()=>count = count+1}>Count is {count}</Button>
+  <Dialog open={showDialog} {close}>111</Dialog>
+  {showDialog}
+  <Button on:click={close}/>
   <div>
     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
       <img src={viteLogo} class="logo" alt="Vite Logo" />
