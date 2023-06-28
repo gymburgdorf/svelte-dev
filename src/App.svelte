@@ -6,14 +6,18 @@ import Dialog from './ui-comps/Dialog.svelte';
 
 let count = 0
 let showDialog = false
-const close = ()=>showDialog=true
+const open = () => {
+  showDialog=true
+}
+const close = () => {
+  showDialog=false
+}
 </script>
 
 <main>
   <Button on:click={()=>count = count+1}>Count is {count}</Button>
   <Dialog open={showDialog} {close}>111</Dialog>
-  {showDialog}
-  <Button on:click={close}/>
+  <Button on:click={open}>Open Dialog</Button>
   <div>
     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
       <img src={viteLogo} class="logo" alt="Vite Logo" />
